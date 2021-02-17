@@ -60,6 +60,8 @@ class CustomeListTest {
         dblist.Add(5.3);
 
         assertEquals(1.4,dblist.GetByIndex(2));
+
+        assertNull(dblist.GetByIndex(67));
     }
 
     @Test

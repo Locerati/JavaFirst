@@ -134,7 +134,7 @@ public class CustomeList<T> implements Iterable<T> {
     public T GetByIndex(int index){
         int temp=0;
         Node<T> current = head;
-        while(temp<=index){ //доходим до нужного нам индекса
+        while(temp<=index && current != null){ //доходим до нужного нам индекса
             if (temp==index){
                 return current.GetData();
             }
