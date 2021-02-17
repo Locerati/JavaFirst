@@ -1,4 +1,4 @@
-package com.company;
+package main.java.com.company;
 /**
  * Класс представляющий объект в коллекции
  * @author Denis Popov

@@ -1,6 +1,6 @@
 package tests;
 
-import com.company.CustomeList;
+import main.java.com.company.CustomeList;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
