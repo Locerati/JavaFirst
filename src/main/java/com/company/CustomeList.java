@@ -18,20 +18,20 @@ public class CustomeList<T> implements Iterable<T> {
     int count;
 
     /** Геттер возвращающий первый элемент*/
-    public Node<T> GetHead(){
+    public Node<T> getHead(){
         return  head;
     }
     /** Геттер возвращающий последний элемент*/
-    public Node<T> GetTail(){
+    public Node<T> getTail(){
         return tail;
     }
     /** Метод добавления элемента*/
-    public void Add(T data){
+    public void add(T data){
         Node<T> node=new Node<T>(data);
         if(head==null) //Если коллекция пуста, то инициализируем head
             head=node;
         else
-            tail.SetNext(node);
+            tail.setNext(node);
         tail=node; //Перестраиваем tail
         count++;
     }
@@ -41,29 +41,29 @@ public class CustomeList<T> implements Iterable<T> {
      * @param data - принимает элемент который нужно удалить
      * @return - возвращает логическое значение равное успешному или неуспешному результату
      */
-    public boolean RemoveFirstOrDefault(T data)
+    public boolean removeFirstOrDefault(T data)
     {
         Node<T> current = head; // временные переменные для обхода по коллекции
         Node<T> previous = null;
 
         while (current != null) //пока не дойдем до конца
         {
-            if (current.GetData().equals(data))
+            if (current.getData().equals(data))
             {
                 // Если унаш элемент в середине или в конце
                 if (previous != null)
                 {
                     // убираем узел current, previous ссылается на current.Next
-                    previous.SetNext(current.GetNext());
+                    previous.setNext(current.getNext());
 
                     // Если current.Next не установлен, значит узел последний
-                    if (current.GetNext() == null)
+                    if (current.getNext() == null)
                         tail = previous;
                 }
                 else
                 {
                     // если удаляется первый элемент, то переустанавливаем значение head
-                    head = head.GetNext();
+                    head = head.getNext();
 
                     // если после удаления список пуст, сбрасываем tail
                     if (head == null)
@@ -74,7 +74,7 @@ public class CustomeList<T> implements Iterable<T> {
             }
 
             previous = current;
-            current = current.GetNext();
+            current = current.getNext();
         }
         return false; //Если элемент не найден, то возвращаем отрицательный результат
     }
@@ -83,7 +83,7 @@ public class CustomeList<T> implements Iterable<T> {
      * @param index - принимает индекс элмента, который нужно удалить
      * @return - возвращает логическое значение равное успешному или неуспешному результату
      */
-    public boolean RemoveByIndex(int index)
+    public boolean removeByIndex(int index)
     {
         Node<T> current = head; // временные переменные для обхода по коллекции
         Node<T> previous = null;
@@ -101,16 +101,16 @@ public class CustomeList<T> implements Iterable<T> {
                 if (previous != null)
                 {
                     // убираем узел current, теперь previous ссылается  на current.Next
-                    previous.SetNext(current.GetNext());
+                    previous.setNext(current.getNext());
 
                     // Если current.Next не установлен, значит узел последний,изменяем переменную tail
-                    if (current.GetNext() == null)
+                    if (current.getNext() == null)
                         tail = previous;
                 }
                 else
                 {
                     // если удаляется первый элемент, то переустанавливаем значение head
-                    head = head.GetNext();
+                    head = head.getNext();
 
                     // если после удаления список пуст, сбрасываем tail
                     if (head == null)
@@ -121,7 +121,7 @@ public class CustomeList<T> implements Iterable<T> {
             }
             temp++; //Прибаляем шаг
             previous = current;
-            current = current.GetNext();
+            current = current.getNext();
         }
         return false;
     }
@@ -131,15 +131,15 @@ public class CustomeList<T> implements Iterable<T> {
      * @return - возвращает элемент или null, если элемент не найден
      */
 
-    public T GetByIndex(int index){
+    public T getByIndex(int index){
         int temp=0;
         Node<T> current = head;
         while(temp<=index && current != null){ //доходим до нужного нам индекса
             if (temp==index){
-                return current.GetData();
+                return current.getData();
             }
             else {
-                current=current.GetNext();
+                current=current.getNext();
             }
             temp++;
         }
@@ -147,26 +147,26 @@ public class CustomeList<T> implements Iterable<T> {
 
     }
     /** Метод возвращающий кол-во элементов коллекции*/
-    public int GetCount() {  return count;  }
+    public int getCount() {  return count;  }
     /** Метод проверяющий пуста ли коллекция*/
-    public boolean IsEmpty() { return count == 0; }
+    public boolean isEmpty() { return count == 0; }
 
     /** Очистка коллекции */
-    public void Clear()
+    public void clear()
     {
         head = null;
         tail = null;
         count = 0;
     }
     /** Метод проверяющий содержит ли коллекция элемент*/
-    public boolean Contains(T data)
+    public boolean contains(T data)
     {
         Node<T> current = head;
         while (current != null)
         {
-            if (current.GetData().equals(data))
+            if (current.getData().equals(data))
                 return true;
-            current = current.GetNext();
+            current = current.getNext();
         }
         return false;
     }

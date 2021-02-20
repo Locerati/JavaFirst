@@ -1,4 +1,6 @@
+
 package main.java.com.company;
+
 
 import java.util.Iterator;
 /**
@@ -10,7 +12,7 @@ import java.util.Iterator;
 public class CustomeListIterator<T> implements Iterator<T> {
     Node<T> current;
     public CustomeListIterator(CustomeList<T> list){
-        current=list.GetHead();
+        current=list.getHead();
     }
 
     @Override
@@ -20,8 +22,8 @@ public class CustomeListIterator<T> implements Iterator<T> {
 
     @Override
     public T next() {
-        T data = current.GetData();
-        current=current.GetNext();
+        T data = current.getData();
+        current=current.getNext();
         return data;
     }
 

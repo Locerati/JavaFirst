@@ -9,19 +9,19 @@ public class Node<T> {
     private T data; //Значение элмента
     private Node<T> next; // Ссылка на след элемент
     public Node(T data){
-        SetData(data);
+        setData(data);
     }
     // Гетеры и сетеры
-    public void SetData(T data) {
+    public void setData(T data) {
         this.data = data;
     }
-    public void SetNext(Node<T> next) {
+    public void setNext(Node<T> next) {
         this.next = next;
     }
-    public T GetData() {
+    public T getData() {
         return data;
     }
-    public Node<T> GetNext() {
+    public Node<T> getNext() {
         return next;
     }
 }
